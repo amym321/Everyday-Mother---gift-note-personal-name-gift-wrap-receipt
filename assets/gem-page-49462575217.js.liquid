@@ -1,0 +1,117 @@
+{% comment %}
+	GEMPAGE BUILDER (https://apps.shopify.com/gempage)
+
+	You SHOULD NOT modify source code in this page because
+	It is automatically generated from GEMPAGE BUILDER
+	Try to edit page with the live editor.
+{% endcomment %}
+jQuery(function() {
+    var $module = jQuery('#m-1586539819233').children('.module');
+    $module.gfV1Countdown({
+        id: "1586539819233",
+        idSlug: "1586539819233"
+    });
+});
+    
+    
+    
+    
+    
+    
+    jQuery(function() {
+  var mode = jQuery('.gryffeditor').hasClass('editing') ? 'dev' : 'production';
+  var $module = jQuery('#m-1612484812482').children('.module');
+  if (mode == 'dev') {
+      jQuery('#m-1612484812482').attr('data-name', '').css('background-image', 'none').removeAttr('data-image');
+      
+      var flag = true;
+      var $bkLiquid = parent.jQuery('body').find('#gfFrame').contents().find('#module-1612484812482');
+      if ($bkLiquid && $bkLiquid.length > 0) {
+          var $settings = $bkLiquid.find('.settings');
+          try {
+              var name = '';
+              var imageUrl = '';
+              settings = JSON.parse($settings.html());
+              for (var i = 0; i < settings.length; i++) {
+                  if (settings[i].name == 'name') {
+                      name = settings[i].default_value
+                  }
+                  if (settings[i].name == 'image') {
+                      imageUrl = settings[i].default_value
+                  }
+              }
+              if (imageUrl != '') {
+                  flag = false;
+                  jQuery('#m-1612484812482').css('background-image', 'url(' + imageUrl + ')').css('min-height', '100px').attr('data-image', 'true');
+              }
+              if (name != '' && name != 'Custom Code') {
+                  flag = false;
+                  jQuery('#m-1612484812482').attr('data-name', name);
+              }
+          } catch(error) {
+              console.log(error);
+          }
+      }
+      if (flag) {
+          jQuery('#m-1612484812482').attr('data-name', 'Right click on the module, then choose Edit Html / Liquid option to start writing your custom code.');
+      }
+  }
+});
+(function( jQuery ){
+  // var $module = jQuery('#m-1635177230950').children('.module');
+  // You can add custom Javascript code right here.
+})( window.GemQuery || jQuery );
+    
+        jQuery(function() {
+            var $module = jQuery('#m-1539548742822').children('.module');
+        
+            var token_test = '2269641474.1677ed0.63eaaf968720481a866e9263fc8639e1';
+            var token = $module.data('token') != '' ? $module.data('token') : token_test;
+            var num_photos = parseInt($module.data('photos')) > 1 ? parseInt($module.data('photos')) : 1;
+            var num_columns = parseInt($module.data('columns')) > 1 ? parseInt($module.data('columns')) : num_photos;
+            var padding = parseInt($module.data('padding')) > 0 ? parseInt($module.data('padding')) : 0;
+
+            var instaTag = jQuery.trim($module.data('hashtag')) != '' ? jQuery.trim($module.data('hashtag')) : '';
+
+            if(instaTag != '') {
+                var instaUrl = 'https://api.instagram.com/v1/tags/' + instaTag + '/media/recent';
+            } else {
+                var instaUrl = 'https://api.instagram.com/v1/users/self/media/recent';
+            }
+
+            jQuery.ajax({
+                url: instaUrl,
+                dataType: 'jsonp',
+                type: 'GET',
+                data: {
+                    access_token: token, 
+                    count: num_photos
+                },
+                success: function(data) {
+                    var html = '';
+                    if(data.data != undefined) {
+                        for(var i = 0; i < data.data.length; i++) {
+                            if(i % num_columns == 0) {
+                                html += '<div class="gf_clearfix"></div>';
+                            }
+                            html += '<li><a href="' + data.data[i].link + '" target="_blank" style="padding: ' + padding + 'px;">';
+                                html+= '<img src="'+ data.data[i]['images'].standard_resolution.url + '" alt="' + data.data[i].caption + '" />';
+                            html += '</a></li>';
+                        }
+                        $module.html(html).hide();
+                        $module.find('li').css('width', (100/num_columns)+'%');
+
+                        $module.closest('.module-wrap').css('marginLeft', padding * -1);
+                        $module.closest('.module-wrap').css('marginRight', padding * -1);
+                    }
+                    $module.fadeIn();
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            });
+        });
+    jQuery(function() {
+  var $module = jQuery('#m-1586530537163').children('.module');
+  $module.gfV1Instagram();
+});
