@@ -4,22 +4,22 @@
 {% if linklists.gift-wrapping.links.size > 0 and linklists.gift-wrapping.links.first.type == 'product_link' %}
 
 <div class="upsell__holder">
-  <h2 class="upsell__holder__title">Add to order</h2>
+  <h2 class="upsell__holder__title"></h2>
   <div class="upsell">
     <div class="upsell__image">
-      <img class="upsell__image__inner" loading="lazy" alt="Gift Packaging" src="https://cdn.shopify.com/s/files/1/0037/0681/4577/files/Gift-Packaging-Everyday-Mother-Baby-Shower.jpg?v=1657480094" width="90" height="90">
+      <img class="upsell__image__inner" loading="lazy" alt="Gift Receipt" src="https://cdn.shopify.com/s/files/1/0037/0681/4577/files/gift_receipt.jpg?v=1657516254" width="90" height="90">
     </div>
     <div class="upsell__content">
       <a href="/products/balancing-serum">
-        <h3 class="upsell__title">Add Gift Packaging</h3>
+        <h3 class="upsell__title">Add Gift Receipt</h3>
         <p class="upsell__price ">
-          <span class="new-price">{{ linklists.gift-wrapping.links.first.object.price | money }}</span>
+          <span class="new-price">Free of charge</span>
         </p>
       </a>
 
       <label style="padding-left: 0.7em;" class="upsell__btn uppercase btn--soft btn--small btn--primary" >
         <input style="opacity:0!important;" id="gift-wrapping" type="checkbox" name="attributes[gift-wrapping]" value="yes" {% if cart.attributes.gift-wrapping %} checked="checked"{% endif %} style="float: none" />
-        <span class="btn-state-ready">Add to cart</span>
+        <span class="btn-state-ready">Add to order</span>
       </label>
 
     </div>
