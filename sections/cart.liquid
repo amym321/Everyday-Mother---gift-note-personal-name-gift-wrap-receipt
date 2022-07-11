@@ -68,7 +68,10 @@
               <textarea name="note" class="input-full" id="CartSpecialInstructions" data-cart-note>{{ cart.note }}</textarea>
             {%- endif -%}
 
-            {% render 'gift-wrapping' %}
+            {% comment %}
+              {% render 'gift-wrapping' %}
+              {% render 'gift-receipt' %}
+            {% endcomment %}
 
           </div>
           <div class="cart__footer__shipping">
