@@ -45,6 +45,26 @@
               <p class="small">{{ line_item.variant.title }}</p>
             {% endunless %}
 
+
+
+            {% comment %} gift-note - am {% endcomment %}
+            {%- for p in properties -%}
+              {% assign property_first_char = p.first | slice: 0 %}
+              <li class="product-details__item product-details__item--property
+                {%if property_size == 0 or p.last == blank or property_first_char == '_' %} hide{% endif %}" data-cart-item-property>
+                <span class="product-details__item-label" data-cart-item-property-name>{{ p.first }}: </span>
+                <span data-cart-item-property-value>
+                  {%- if p.last contains '/uploads/' -%}
+                    <a href="{{ p.last }}" data-role="product-upload">{{ p.last | split: '/' | last }}</a>
+                  {%- else -%}
+                    {{ p.last }}
+                  {%- endif -%}
+                </span>
+              </li>
+            {%- endfor -%}
+
+
+
             {% comment %} Subscription plan name {% endcomment %}
             {% if line_item.selling_plan_allocation %}
               <p class="small">{{ line_item.selling_plan_allocation.selling_plan.name }}</p>
