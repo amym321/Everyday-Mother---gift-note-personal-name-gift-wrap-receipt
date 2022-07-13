@@ -45,9 +45,7 @@
               <p class="small">{{ line_item.variant.title }}</p>
             {% endunless %}
 
-
-
-            {% comment %} gift-note - am {% endcomment %}
+            {% comment %} gift-note & personal name - am {% endcomment %}
             {%- for p in properties -%}
               {% assign property_first_char = p.first | slice: 0 %}
               <li class="product-details__item product-details__item--property
@@ -62,8 +60,6 @@
                 </span>
               </li>
             {%- endfor -%}
-
-
 
             {% comment %} Subscription plan name {% endcomment %}
             {% if line_item.selling_plan_allocation %}

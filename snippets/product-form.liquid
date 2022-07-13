@@ -302,8 +302,7 @@
       {%- endif -%}
 
 
-      {% comment %} gift-note - am {% endcomment %}
-                    <h5>remove extra render</h5>
+      {% comment %} gift-note & personal name - am {% endcomment %}
                     {% render 'gift-note' %}
 
 
@@ -332,6 +331,9 @@
             {% if enable_popup_trigger %} data-micromodal-close {% endif %}
             name="add"
             class="btn--outline btn--full btn--primary uppercase btn--add-to-cart"
+
+      id="atc-button"
+
             data-add-to-cart
             {% unless current_variant.available %} disabled="disabled" {% endunless %}>
             <span class="btn-state-ready">
@@ -366,3 +368,29 @@
     {%- endform -%}
   </div>
 </product-form>
+
+
+<script>
+
+
+  // ************* ADD FOR TOUCH TOO ***************
+
+// const a = document.getElementById('atc-button');
+
+// a.addEventListener('click', function () {
+//   if(document.getElementById("personal-name").value.length == 0)
+//   {
+//       alert("empty");
+//       return;
+//   }
+// })
+
+// a.addEventListener('touchstart', function () {
+//   if(document.getElementById("personal-name").value.length == 0)
+//   {
+//       alert("empty");
+//       return;
+//   }
+// })
+  
+</script>
