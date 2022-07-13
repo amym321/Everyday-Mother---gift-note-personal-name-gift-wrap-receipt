@@ -23920,9 +23920,17 @@ body[style*="overflow: hidden"] .upsell__modal {
 
 
 
-/************ added - am ************/
+/***************** added - am *****************/
 
+/* Personal Name and Gift Note text boxes on PDP */
 .text-box-wrapper{
   margin-bottom: 1em;
   padding-bottom: 5px;
 }
+
+.personal-name, .gift-note {
+  padding-bottom: 8px;
+  opacity: .7;
+}
+
+/***************** end - am *****************/
