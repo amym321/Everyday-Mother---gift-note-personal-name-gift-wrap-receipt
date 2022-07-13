@@ -232,6 +232,20 @@
         <span data-subscription-watch-price></span>
       {%- endif -%}
 
+
+                    {% comment %} gift-note & personal name - am {% endcomment %}
+                    {% render 'gift-note' %}
+
+
+      {% if product.tags contains 'giftnote' %}
+        {% render 'gift-note' %}
+      {% endif %}
+    
+      {% if product.tags contains 'personalizedbooks' %}
+        {% render 'personal-name' %}
+      {% endif %}
+
+
       {%- if block.settings.show_quantity -%}
         <div class="quantity__wrapper" data-quantity-selector>
           <button class="quantity__button quantity__button--minus" data-decrease-quantity type="button">&minus;</button>
@@ -301,18 +315,6 @@
         </div>
       {%- endif -%}
 
-
-      {% comment %} gift-note & personal name - am {% endcomment %}
-                    {% render 'gift-note' %}
-
-
-      {% if product.tags contains 'giftnote' %}
-        {% render 'gift-note' %}
-      {% endif %}
-    
-      {% if product.tags contains 'personalizedbooks' %}
-        {% render 'personal-name' %}
-      {% endif %}
 
       <div class="product__submit" data-buttons-wrapper data-add-action-wrapper>
         <div data-add-action-errors class="add-action-errors"></div>

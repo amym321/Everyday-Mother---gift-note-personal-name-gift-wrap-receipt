@@ -23917,3 +23917,12 @@ body[style*="overflow: hidden"] .upsell__modal {
 }
 
 /*! ============ Add any custom styles below this line ================== */
+
+
+
+/************ added - am ************/
+
+.text-box-wrapper{
+  margin-bottom: 1em;
+  padding-bottom: 5px;
+}
